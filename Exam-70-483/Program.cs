@@ -8,6 +8,7 @@ using System.Collections.Concurrent;
 using static Exam_70_483.Chapitre2;
 using Exam.Common;
 using System.Reflection;
+using System.Globalization;
 
 namespace Exam_70_483
 {
@@ -28,14 +29,17 @@ namespace Exam_70_483
             #region Reflection plugins
             var plugins = Chapitre2.LoadPlugins();
             List<IPlugin> pluginsInstances = new List<IPlugin>();
+            var culture = new CultureInfo("fr-FR");
             foreach (var plugin in plugins)
             {
-                Console.WriteLine($"{plugin.Name} plugin loaded");
                 pluginsInstances.Add(Activator.CreateInstance(plugin) as IPlugin);
             }
 
             foreach (var pluginInstance in pluginsInstances)
             {
+                Console.WriteLine($"Fullname : {pluginInstance:f}{Environment.NewLine}");
+                Console.WriteLine($"Name :{pluginInstance:s}{Environment.NewLine}");
+                
                 pluginInstance.Format(new System.IO.FileInfo(Assembly.GetExecutingAssembly().FullName), CancellationToken.None);
             }
             Console.ReadKey();

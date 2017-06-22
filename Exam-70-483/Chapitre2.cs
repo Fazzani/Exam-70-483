@@ -48,7 +48,7 @@ namespace Exam_70_483
                 return GetEnumerator();
             }
         }
-        public class Money : IComparable<Money>
+        public class Money : IComparable<Money>, IFormattable
         {
             public decimal Amount { get; set; }
             public Money(decimal amount)
@@ -71,6 +71,11 @@ namespace Exam_70_483
                 if (other == null)
                     return 1;
                 return Amount.CompareTo(other.Amount);
+            }
+
+            public string ToString(string format, IFormatProvider formatProvider)
+            {
+                return Amount.ToString(format, formatProvider);
             }
             #endregion
         }
