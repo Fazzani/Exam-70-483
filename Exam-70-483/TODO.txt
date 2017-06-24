@@ -1,4 +1,6 @@
-﻿- Linq query
+﻿Objectifs
+=========
+- Linq query
 - PDB file test debug a dll 
 - CodeDom
 - l'Objective 2.6: Manage the object life cycle à relire attentivement
@@ -15,3 +17,4 @@ Exercice 1
 2 - Serialise and déserialize channels list in file with  permissions, buffering and crypto
 3 - Manipulate channels with linq (group, sort, etc)
 4 - Trace all the application
+5 - Secure playlist exchange between two entities (asym/ sym crypto and hash)
