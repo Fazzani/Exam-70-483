@@ -9,6 +9,7 @@ using static Exam_70_483.Chapitre2;
 using Exam.Common;
 using System.Reflection;
 using System.Globalization;
+using System.IO;
 
 namespace Exam_70_483
 {
@@ -25,9 +26,13 @@ namespace Exam_70_483
         }
         static void Main(string[] args)
         {
-
-            #region Reflection plugins
-            var plugins = Chapitre2.LoadPlugins();
+            var xml = "";
+            using (StringReader stringReader = new StringReader(xml))
+            {
+                
+            }
+                #region Reflection plugins
+                var plugins = Chapitre2.LoadPlugins();
             List<IPlugin> pluginsInstances = new List<IPlugin>();
             var culture = new CultureInfo("fr-FR");
             foreach (var plugin in plugins)
@@ -39,7 +44,7 @@ namespace Exam_70_483
             {
                 Console.WriteLine($"Fullname : {pluginInstance:f}{Environment.NewLine}");
                 Console.WriteLine($"Name :{pluginInstance:s}{Environment.NewLine}");
-                
+
                 pluginInstance.Format(new System.IO.FileInfo(Assembly.GetExecutingAssembly().FullName), CancellationToken.None);
             }
             Console.ReadKey();
@@ -78,9 +83,9 @@ namespace Exam_70_483
             private string courseName;
             public Student(string first, string last, string course)
             {
-                this.firstName = first;
-                this.lastName = last;
-                this.courseName = course;
+                firstName = first;
+                lastName = last;
+                courseName = course;
             }
         }
     }

@@ -9,7 +9,7 @@ namespace Exam.Library2
     {
         public void Format(FileInfo file, CancellationToken token)
         {
-            Console.WriteLine($"Treating file {file.Name} by {this.GetType().Assembly.GetName()}");
+            Console.WriteLine($"Treating file {file.Name} by {GetType().Assembly.GetName()}");
         }
         string IFormattable.ToString(string format, IFormatProvider formatProvider)
         {
